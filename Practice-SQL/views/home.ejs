@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="Homepage.css" />
+</head>
+<body>
+  <div class="main-wrapper">
+    <div class="card user-info">
+      <form method="post" action="/">
+        <h1>The total number of users are: <span><%= count %></span></h1>
+      </form>
+    </div>
+
+    <div class="card record-action">
+      <form method="GET" action="/user">
+        <h2>See student records:</h2>
+        <button class="see-button">See</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
