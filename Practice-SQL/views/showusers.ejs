@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Users</title>
+    <link rel="stylesheet" href="UserPage.css">
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <form method="get" action="/user/add">
+        <h2>To enroll : <button> Join us today!</button></h2>
+    </form>
+    <table>
+        <tr>
+            <th>no.</th>
+            <th>Id</th>
+            <th>Email</th>
+            <th>Username</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr>
+            <% let count = 1; %>
+            <% for(user of users) { %>
+                <tr>
+                    <td data-label="No."> <%= count %> </td>
+                    <td data-label="Id"> <%= user.id %> </td>
+                    <td data-label="Email"> <%= user.email %> </td>
+                    <td data-label="Username"> <%= user.username %> </td>
+                    <td>
+                        <form method="GET" action="/user/<%=user.id%>/edit">
+                            <button>Edit</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="GET" action="/user/<%=user.id%>/delete">
+                            <button>Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                <% count++; %>
+            <% } %>
+        </tr>
+    </table>
+</body>
+</html>
